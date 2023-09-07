@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter name:");
+        String name1 = scan.nextLine();
+
+        System.out.println(name1);
+    }
+}
