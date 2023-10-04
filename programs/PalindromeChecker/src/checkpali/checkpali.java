@@ -7,13 +7,14 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class checkpali {
-    public static void main(String[] args) throws Exception {
+    public void runcode() {
         // Read user input
         Scanner console = new Scanner(System.in);                           
         System.out.println("Enter String:");               
         
         // save user input in variable
-        String string1 = console.nextLine().toLowerCase();                  
+        String string2 = console.nextLine();
+        String string1 = string2.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();                  
 
         // check if input is empty string or not:
         if (string1 == "" || string1 == " ") {
@@ -45,9 +46,9 @@ public class checkpali {
 
             // print string telling user if the string is palindrome or not, depending on "isPali"'s value:
             if (isPali == false) {
-                System.out.println(string1 + " is not a palindrome");
+                System.out.println(string2 + " is not a palindrome");
             } else {
-                System.out.println(string1 + " is a palindrome!");
+                System.out.println(string2 + " is a palindrome!");
             }
         }
 
