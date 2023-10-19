@@ -24,6 +24,28 @@ public class Calculator {
         for (int i = 0; i < stringArr.length; i++) {
             // push integers to the stack, ignoring the operators and set the operator (if given) to currOperator
             // set given command to "command" (if given)
+            String token = stringArr[i];
+            switch (token) {
+                case "+":
+                    // add 
+                    break;
+                case "/":
+                    // divide 
+                    break;
+                case "-":
+                    // subtract 
+                    break;
+                case "%":
+                    // modulo 
+                    break;
+                case "*":
+                    // multiply 
+                    break;
+                // if not an operator, it's an integer
+                default:
+                    int_stack.push(Integer.parseInt(token));
+                    break;
+            }
         }
     
         console.close();
