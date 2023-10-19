@@ -7,14 +7,13 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class checkpali {
-    public void runcode() {
+    public static void main(String[] args) throws Exception {
         // Read user input
         Scanner console = new Scanner(System.in);                           
         System.out.println("Enter String:");               
         
         // save user input in variable
-        String string2 = console.nextLine();
-        String string1 = string2.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();                  
+        String string1 = console.nextLine().toLowerCase();                  
 
         // check if input is empty string or not:
         if (string1 == "" || string1 == " ") {
@@ -46,9 +45,9 @@ public class checkpali {
 
             // print string telling user if the string is palindrome or not, depending on "isPali"'s value:
             if (isPali == false) {
-                System.out.println(string2 + " is not a palindrome");
+                System.out.println(string1 + " is not a palindrome");
             } else {
-                System.out.println(string2 + " is a palindrome!");
+                System.out.println(string1 + " is a palindrome!");
             }
         }
 
@@ -57,7 +56,3 @@ public class checkpali {
     };
 };
 
-        // [l, o, l]  -> STACK (FILO): start from right, to left. Keep adding on left. Remove at biggest index. 
-        // -----+0
-        // [l, o, l]  -> QUEUE (FIFO): start from left, to right. Keep adding on right. Remove from index 0.
-        // 0----------+

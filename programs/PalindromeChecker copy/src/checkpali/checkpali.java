@@ -57,7 +57,3 @@ public class checkpali {
     };
 };
 
-        // [l, o, l]  -> STACK (FILO): start from right, to left. Keep adding on left. Remove at biggest index. 
-        // -----+0
-        // [l, o, l]  -> QUEUE (FIFO): start from left, to right. Keep adding on right. Remove from index 0.
-        // 0----------+

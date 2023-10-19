@@ -16,6 +16,7 @@ public class FileRead {
         // THIS REQUIRES YOU TO HAVE "data.txt" file in main project folder.
         System.out.println("Default is " + defaultFile.getAbsolutePath());
 
+
         Scanner console = new Scanner(System.in); // Read user input
 
         System.out.println("Enter file name:");     // ask user for input
