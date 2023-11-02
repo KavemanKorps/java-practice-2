@@ -15,10 +15,50 @@ public class calculator {
         String stringOShit = console.nextLine();        // will contain numbers, operators, and keyletters
         String[] tokens = stringOShit.split(" ");
 
+        String s = "p print top\n"
+                + "n  print top and remove\n"
+                + "d  duplicate top\n"
+                + "r  exchange top two items\n"
+                + "f  print contents of stack\n"
+                + "+  add\n"
+                + "-  subtract\n"
+                + "*  multiply\n"
+                + "/  integer divide\n"
+                + "%  integer remainder\n"
+                + "m  unary minus\n"
+                + "q  quit\n";
+             
+
         // each value in the array is a "token"
         for (int i = 0; i < tokens.length; i++) {
             String token = tokens[i];
             switch (token) {
+                //COMMANDS:
+                case "h":
+                    System.out.println(s);
+                    break;
+
+                case "p":
+                    break;
+
+                case "n":
+                    break;
+
+                case "d":
+                    break;
+
+                case "r":
+                    break;
+                    
+                case "f":
+                    break;
+                    
+                case "m":
+                    break;           
+                    
+                case "q":
+                    break;                  
+
                 case "+":
                     int_stack.push(int_stack.pop() + int_stack.pop());
                     break;
@@ -47,8 +87,8 @@ public class calculator {
                     break;
             }
         }
-
-        System.out.println(Arrays.toString(tokens));
+        // return int_stack.pop();
+        System.out.println(int_stack.pop());
     
         console.close();
     }
