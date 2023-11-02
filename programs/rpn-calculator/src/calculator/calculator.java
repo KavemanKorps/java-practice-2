@@ -20,14 +20,26 @@ public class calculator {
             String token = tokens[i];
             switch (token) {
                 case "+":
-                    break;
-                case "/":
+                    int_stack.push(int_stack.pop() + int_stack.pop());
                     break;
                 case "-":
-                    break;
-                case "%":
+                    num1 = int_stack.pop();
+                    num2 = int_stack.pop();
+                    int_stack.push(num2 - num1);
                     break;
                 case "*":
+                    int_stack.push(int_stack.pop() * int_stack.pop());
+                    break;
+                case "/":
+                    // 3 4 / --> num1 = 3, num2 = 4 
+                    num1 = int_stack.pop();
+                    num2 = int_stack.pop();
+                    int_stack.push(num2 / num1);
+                    break;
+                case "%":
+                    num1 = int_stack.pop();
+                    num2 = int_stack.pop();
+                    int_stack.push(num2 % num1);
                     break;
                 // if not an operator, it's an integer
                 default:
@@ -35,8 +47,6 @@ public class calculator {
                     break;
             }
         }
-
-
 
         System.out.println(Arrays.toString(tokens));
     
