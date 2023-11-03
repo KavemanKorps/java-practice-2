@@ -12,8 +12,6 @@ public class calculator {
         int num1, num2;
 
         System.out.println("Enter input (press h for help):");
-        Scanner console = new Scanner(System.in);    
-        String input = console.nextLine();        // will contain numbers, operators, and keyletters
 
         String s = "p print top\n"
                 + "n  print top and remove\n"
@@ -28,12 +26,16 @@ public class calculator {
                 + "m  unary minus\n"
                 + "q  quit\n";
 
-        do {
-            String[] tokens = input.split(" ");
+        Scanner console = new Scanner(System.in);    
+        String input = console.nextLine();        // will contain numbers, operators, and keyletters
 
+        String[] tokens = input.split(" ");
+
+        while (true) {
             // each value in the array is a "token"
             for (int i = 0; i < tokens.length; i++) {
                 String token = tokens[i];
+
                 switch (token) {
                     //COMMANDS:
                     case "h":
@@ -77,10 +79,12 @@ public class calculator {
                         
                     case "q":
                         System.out.println("quitting program...");
+                        console.close();
                         break;                  
 
                     case "+":
                         int_stack.push(int_stack.pop() + int_stack.pop());
+                        //System.out.println(int_stack.peek());
                         break;
                     case "-":
                         num1 = int_stack.pop();
@@ -106,11 +110,13 @@ public class calculator {
                         int_stack.push(Integer.parseInt(token));
                         break;
                 }
+                if (tokens[i] == "q") break;
             }
-        } while (input != "q");
+
+        }
+
+            // System.out.println(int_stack.pop());
+        //} while (input != "q");
         // return int_stack.pop();
-        System.out.println(int_stack.pop());
-    
-        console.close();
     }
 }
