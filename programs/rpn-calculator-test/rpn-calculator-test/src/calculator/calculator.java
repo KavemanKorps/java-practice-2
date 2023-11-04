@@ -1,8 +1,10 @@
+package calculator;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class RPNCalculator {
-    public static void main(String[] args) {
+public class calculator {
+    // public static void main(String[] args) {
+    public void runCalc() {
         // MAIN FUNCTION: handles the commands and runs "mathHandler()" to handle numbers/operators 
         Stack<Integer> num_stack = new Stack<>();
         Scanner console = new Scanner(System.in);
