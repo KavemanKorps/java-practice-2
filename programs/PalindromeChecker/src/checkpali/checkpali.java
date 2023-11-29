@@ -32,8 +32,8 @@ public class checkpali {
 
             // add all the characters in the string to the stack and queue:
             for (int i = 0; i < string1.length(); i++) {
-                string_stack.add(string1.charAt(i));
-                string_queue.add(string1.charAt(i));
+                string_stack.add(string2.charAt(i));
+                string_queue.add(string2.charAt(i));
             };
 
             // compare the frontmost element in the queue with the backmost element in the stack.
