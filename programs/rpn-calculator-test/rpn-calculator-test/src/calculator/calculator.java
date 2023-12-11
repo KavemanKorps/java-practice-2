@@ -21,7 +21,7 @@ public class calculator {
         + "%  integer remainder\n"
         + "m  unary minus\n"
         + "q  quit\n";
-
+        
         System.out.println("Enter input ('q' to quit, 'h' for help):");
 
         while (true) {
@@ -92,6 +92,11 @@ public class calculator {
         Integer int2 = stack.pop();     // 2nd topmost
         Integer int1 = stack.pop();     // topmost
 
+        // REVIEW: THE PROFESSOR DOES ALL THE POPPING HERE FOR EACH INDIVIDUAL CASE:
+        // op2 = (stack.pop()).intValue()
+        // op1 = (stack.pop()).intValue()
+        // result = op1 + op2;
+        // break;
         switch (operator) {
             case "+":
                 stack.push(int1 + int2);

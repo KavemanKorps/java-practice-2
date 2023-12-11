@@ -5,4 +5,4 @@ public class Driver {
         checkpali checker = new checkpali();
         checker.runcode();
     }
-};
+}

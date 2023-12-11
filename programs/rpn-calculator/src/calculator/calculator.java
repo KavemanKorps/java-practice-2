@@ -107,15 +107,15 @@ public class calculator {
                         break;
                     // if not an operator, it's an integer
                     default:
+                        // all this is going to do is keep pushing numbers to the stack
                         int_stack.push(Integer.parseInt(token));
+                        System.out.println(Arrays.toString(int_stack.toArray()));
                         break;
                 }
                 if (tokens[i] == "q") break;
             }
-
         }
-
-            // System.out.println(int_stack.pop());
+        // System.out.println(int_stack.pop());
         //} while (input != "q");
         // return int_stack.pop();
     }
