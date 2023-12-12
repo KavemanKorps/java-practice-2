@@ -1,8 +1,13 @@
+package bstFinal.src;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 // class for creating nodes
+// WHAT DETERMINES IF STRING NODE GETS ADDED TO LEFT OR RIGHT??? their alphabetical order
+// made possible with compareTo(); on line 30
+
 class Node {
   Node left;
   Node right;
@@ -26,6 +31,7 @@ class BST {
     
     // if the value is less than the current node (its data), insert a new node as the current node's left child
     if (compareResult < 0) {
+      // node.left.insert(node.left, val);
       node.left = insert(node.left, val);
     // else, insert it as the right child
     } else if (compareResult > 0) {
@@ -36,9 +42,9 @@ class BST {
   }
   
   // creates "Node" objects:
-  public Node createNewNode(String k) {
+  public Node createNewNode(String data) {
     Node a = new Node();
-    a.data = k;
+    a.data = data;
     a.left = null;
     a.right = null;
     return a;
@@ -46,67 +52,62 @@ class BST {
   
   // Method to empty the tree
   public Node emptyTree(Node node) {
-    // Setting the root to null effectively empties the tree
+    // return;
     return null;
   }
 
   // Method to count the number of elements in the tree
-  public int countElements(Node node) {
-    if (node == null) {
-      return 0;
-    }
-    return 1 + countElements(node.left) + countElements(node.right);
+  public int countElems(Node node) {
+    if (node == null) return 0;
+  
+    return 1 + countElems(node.left) + countElems(node.right);
   }
 
   // Method to calculate the height of the tree
-  public int calculateHeight(Node node) {
-    if (node == null) {
-      return 0;
-    }
+  public int getHeight(Node node) {
+    if (node == null) return 0;
 
-    int leftHeight = calculateHeight(node.left);
-    int rightHeight = calculateHeight(node.right);
+    // RECURSION USED, every time new node encountered, +1 added.
+    int lHeight = getHeight(node.left);
+    int rHeight = getHeight(node.right);
 
     // Return the height of the subtree rooted at this node
-    return 1 + Math.max(leftHeight, rightHeight);
+    return 1 + Math.max(lHeight, rHeight);
   }
 
-  // Method to perform level order traversal and print each level
+  // MUST USE "LEVEL ORDER TRAVERSAL" to make "levelPrint" happen
   public void levelPrint(Node root) {
-    if (root == null) {
-      return;
-    }
+    if (root == null) return;
 
-    Queue<Node> queue = new LinkedList<>();
-    queue.add(root);
+    // a queue full of Node objects:
+    Queue<Node> nodes = new LinkedList<>();
+    nodes.add(root);
 
-    while (!queue.isEmpty()) {
-      int levelSize = queue.size();
+    while (!nodes.isEmpty()) {
+      int levelSize = nodes.size(); // gets relative size (htms :) )
 
-      System.out.print("Level " + (queue.size() - 1) + ": ");
       for (int i = 0; i < levelSize; i++) {
-        Node current = queue.poll();
+        // Node current = nodes.shift();
+        // poll gets first elem in queue:
+        Node current = nodes.poll();
         System.out.print(current.data + " ");
 
-        if (current.left != null) {
-          queue.add(current.left);
-        }
-        if (current.right != null) {
-          queue.add(current.right);
-        }
+        // if current node has left/right nodes, add em to queue.
+        if (current.left != null) nodes.add(current.left);
+        if (current.right != null) nodes.add(current.right);
+        
       }
-      System.out.println();
+      System.out.println(); // newline after every level
     }
   }
 }
 
+// OUTPUT CASE HANDLING AND LOOP:
 public class BSTApp2 {
   public static void main(String[] args) {
     BST a = new BST();
     Node root = null;
     Scanner scanner = new Scanner(System.in);
-    
-    System.out.println("Enter values to insert into the BST, 'emptyTest' to empty the tree, 'count' to display the number of elements, 'height' to display the height, 'levelPrint' to print levels, or press Enter to exit.");
 
     while (true) {
       System.out.print("Enter command or value: ");
@@ -116,9 +117,11 @@ public class BSTApp2 {
       
       if (input.equals("emptyTest")) root = a.emptyTree(root);
 
-      else if (input.equals("count")) System.out.println("The tree contains " + a.countElements(root) + " elements.");
+      // else if (input.equals("emptyTest")) root = a.emptyTree(root);
+
+      else if (input.equals("count")) System.out.println("The tree contains " + a.countElems(root) + " elements.");
       
-      else if (input.equals("height")) System.out.println("The height of the tree is: " + a.calculateHeight(root));
+      else if (input.equals("height")) System.out.println("The height of the tree is: " + a.getHeight(root));
 
       else if (input.equals("levelPrint")) a.levelPrint(root);
 
