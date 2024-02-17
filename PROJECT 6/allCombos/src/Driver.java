@@ -1,0 +1,8 @@
+import arrcombos.arrcombos;
+
+public class Driver {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        arrcombos.perms(arr);
+    }
+}
